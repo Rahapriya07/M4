@@ -1,3 +1,6 @@
+## Name : Raha Priya Dharshini M
+## Reg no.:212224240124
+
 # EX-16-LEFT-SHIFT-OPERATION
 ## AIM
 To write a C Program to perform the basic left shift operation for 44 integer number with 3 shifts.
@@ -10,29 +13,31 @@ To write a C Program to perform the basic left shift operation for 44 integer nu
 5.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+
+int main() {
+    int num = 44;
+    int shift = 3;
+    int result;
+
+    result = num << shift;
+
+    printf("Original number: %d\n", num);
+    printf("After left shifting by %d positions: %d\n", shift, result);
+
+    return 0;
+}
+```
+
 
 ## OUTPUT
-
-
-
-
-
-
-
-
+![Screenshot 2025-05-12 230849](https://github.com/user-attachments/assets/f012cba3-cab8-4372-915f-e4cfdef72187)
 
 ## RESULT
 Thus the program to perform the basic left shift operation for 44 integer number with 3 shifts has been executed successfully.
 
-
-
-
- 
- 
-
-
 # EX-17-TWO-NUMBERS-ARE-EQUAL-OR-NOT
-
 
 ## AIM
 
@@ -47,17 +52,29 @@ Write a C Program to check whether the two numbers are equal or not using simple
 5.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
 
-
+int main() {
+    int a, b;
+    printf("Enter two numbers:\n");
+    scanf("%d %d", &a, &b);
+    if(a == b) {
+        printf("The numbers are equal.\n");
+    }
+    if(a != b) {
+        printf("The numbers are not equal.\n");
+    }
+    return 0;
+}
+```
 ## OUTPUT
+![Screenshot 2025-05-12 231515](https://github.com/user-attachments/assets/a2bc91c1-d8aa-481e-a605-6d3b90a046d7)
            
 ## RESULT
 
 Thus the program to check whether the two numbers are equal or not using simple if statement has been executed successfully
  
- 
-
-
 # EX-18-STRING-LOWERCASE-CONVERSION
 ## AIM
 Write a C Program to convert the given string into lowercase.
@@ -70,11 +87,24 @@ Write a C Program to convert the given string into lowercase.
 5.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+#include <ctype.h> 
 
+int main() {
+    char str[100];
+    int i;
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin); 
+    for(i = 0; str[i] != '\0'; i++) {
+        str[i] = tolower(str[i]);
+    }
+    printf("Lowercase string: %s", str);
+    return 0;
+}
+```
 ## OUTPUT
-
-
-
+![Screenshot 2025-05-12 231756](https://github.com/user-attachments/assets/4d0c8f87-9963-4b7e-a811-07c3af8bb37a)
 
 ## RESULT
 Thus the program to convert the given string into lowercase has been executed successfully
@@ -95,8 +125,39 @@ Write a C Program to count the total number of words in a given string using do 
 6.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[200];
+    int i = 0, wordCount = 0;
+
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin); 
+
+    if(str[strlen(str) - 1] == '\n') {
+        str[strlen(str) - 1] = '\0';
+    }
+
+    do {
+        
+        if((i == 0 && str[i] != ' ') || 
+           (str[i] != ' ' && str[i - 1] == ' ')) {
+            wordCount++;
+        }
+        i++;
+    } while(str[i] != '\0');
+
+    printf("Total number of words: %d\n", wordCount);
+
+    return 0;
+}
+```
 
 ## OUTPUT
+![Screenshot 2025-05-12 232319](https://github.com/user-attachments/assets/3464253b-b3d0-4b6a-9810-18a70460b151)
+
 
 
 
@@ -129,10 +190,32 @@ Step 7: After the loop, check the value of flag:
 Step 8: End the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
 
-
+int main() {
+    char str1[100], str2[100];
+    int i = 0, flag = 0;
+    printf("Enter first string: ");
+    gets(str1);    
+    printf("Enter second string: ");
+    gets(str2);
+    while(str1[i] != '\0' || str2[i] != '\0') {
+        if(str1[i] != str2[i]) {
+            flag = 1;
+            break;
+        }
+        i++;
+    }
+    if(flag == 0)
+        printf("The strings are equal.\n");
+    else
+        printf("The strings are not equal.\n");
+    return 0;
+}
+```
 ## OUTPUT
- 
+![Screenshot 2025-05-12 234057](https://github.com/user-attachments/assets/709789cd-965c-48df-add9-54975753065a) 
 
 ## RESULT
 Thus the C Program to compare two strings without using strcmp() has been executed successfully.
